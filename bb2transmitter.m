@@ -1,6 +1,6 @@
 % Bipolar, Baseband PAM transmitter
 %
-% ECE 5520, Spring 2008
+% ESE 471, Spring 2021
 % Author: Neal Patwari
 % License: see LICENSE.md
 %
