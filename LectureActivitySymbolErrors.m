@@ -8,9 +8,10 @@
 %   the standard deviation of noise, and the probability of H_0.
 %
 % Author: Neal Patwari, 18 Feb 2019
+%         v2 22 Feb 2021
 %
 
-threshold = 0.75
+threshold =  0.9
 
 % Parameters
 a_0 = 0;      % Symbol 0 amplitude (V)
