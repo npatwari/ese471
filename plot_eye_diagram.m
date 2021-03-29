@@ -25,6 +25,6 @@ for i=1:length(start_indices),
 end
 set(h,'LineWidth',2)
 set(gca,'FontSize',20)
-xlabel('Time t/T_s_y')
+xlabel('Time t/T_s')
 ylabel('M.F. Output')
 hold off;
