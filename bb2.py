@@ -14,6 +14,7 @@
 # Version History:
 #
 # Version 1.0:  Initial Release.  Feb 2021.  For Python 3.6.10
+# Version 1.1: For class Spring 2023.
 #
 
 import sys
@@ -30,23 +31,13 @@ matplotlib.rc('xtick', labelsize=16)
 matplotlib.rc('ytick', labelsize=16) 
 plt.ion()
 
-# Possible modes: 
-# 1: 'test' mode which allows you to show what would be tranmitted 
-#    for a fake data bit list
-# 2: 'instructor', what I use to generate the received signal
-# 3: 'assignment', what you us to build a receiver to work with the 
-#    given saved received signal.
-mode = 3
 
 #################################################
 # Signal Generation
 # INPUT:  none
 # OUTPUT: binary data
-if mode == 2:
-    temp      = 'ESE 471';
-    data      = digicomm.text2bits(temp);
-else:
-    data      = [1, 0, 0, 1];
+temp      = 'ESE 471';
+data      = digicomm.text2bits(temp);
 
 
 #################################################
@@ -85,9 +76,8 @@ plt.grid('on')
 
 
 # Load s if doing the receiver assignment from a saved mat file
-if mode == 3:
-    temp = scipy.io.loadmat('bb2.mat')
-    s    = temp['s'].flatten()
+#temp = scipy.io.loadmat('bb2.mat')
+#s    = temp['s'].flatten()
 
 #################################################
 #################################################
@@ -142,7 +132,6 @@ data_out = (r_hat>0).astype(int)
 # Translate to ascii text
 # INPUT: Bits
 # OUTPUT: Character vector, message_out
-if mode==3:
-    message_out = digicomm.binvector2str(data_out)
-    print(message_out)
+message_out = digicomm.binvector2str(data_out)
+print(message_out)
 

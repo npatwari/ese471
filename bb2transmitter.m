@@ -12,20 +12,13 @@
 % 2: 'instructor', what I use to generate the received signal
 % 3: 'assignment', what you use to build a receiver to work with the 
 %    given saved received signal.
-mode = 2
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Signal Generation
 % INPUT:  none
 % OUTPUT: binary data
-if mode == 2,
-    temp      = 'ESE 471';
-    data      = text2bits(temp);
-
-else
-    data      = [1 0 0 1];
-end
+temp      = 'ESE 471';
+data      = text2bits(temp);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Modulation
@@ -61,9 +54,7 @@ grid
 
 
 % Load s if doing the receiver assignment from a saved mat file
-if mode==3,
-   load bb2.mat
-end
+%   load bb2.mat
 
 
 
@@ -114,7 +105,5 @@ data_out = double(r_hat > 0);
 % Translate to ascii text
 % INPUT: Bits
 % OUTPUT: Character vector, message_out
-if mode==3,
-    message_out = binvector2str(data_out)
-end
+message_out = binvector2str(data_out)
 
