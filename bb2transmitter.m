@@ -10,9 +10,9 @@
 % 1: 'test' mode which allows you to show what would be tranmitted 
 %    for a fake data bit list
 % 2: 'instructor', what I use to generate the received signal
-% 3: 'assignment', what you us to build a receiver to work with the 
+% 3: 'assignment', what you use to build a receiver to work with the 
 %    given saved received signal.
-mode = 3
+mode = 2
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -108,6 +108,7 @@ r_hat     = y_s(US_Rate: US_Rate: end);
 % INPUT: Symbol Samples
 % OUTPUT: Bits
 data_out = double(r_hat > 0);
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Translate to ascii text
