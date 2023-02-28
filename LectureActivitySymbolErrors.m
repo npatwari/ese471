@@ -9,15 +9,15 @@
 %
 % Author: Neal Patwari, 18 Feb 2019
 %         v2 22 Feb 2021
-%
 
-threshold =  0.9
+threshold = 0.76
+
 
 % Parameters
 a_0 = 0;      % Symbol 0 amplitude (V)
 a_1 = 1;      % Symbol 1 amplitude (V)
 sigma = 0.4;  % Standard deviation of noise (V)
-p_H0 = 0.9;   % Probability of H_0
+p_H0 = 0.8;   % Probability of H_0
 trials = 1000; % Number of sumbols to simulate
 
 % Simulate trials symbols
@@ -27,17 +27,17 @@ actual_symbols = (rand(1,trials) > p_H0);
 RX_value        = zeros(1,trials);
 for i = 1:trials
     if actual_symbols(i)
-        RX_value(i)    = a_1 + sigma*randn;
+        RX_value(i)    = a_1 + sigma*randl(1,1);
     else
-        RX_value(i)    = a_0 + sigma*randn;
+        RX_value(i)    = a_0 + sigma*randl(1,1);
     end
 end
 decision_symbol = (RX_value > threshold);
 errors = sum(double(xor(decision_symbol, actual_symbols)))
 
 % Plot the results
-clf;
 figure(1);
+clf;
 hold on;
 for i=1:trials
     if actual_symbols(i)
@@ -52,6 +52,7 @@ ylabel('Decision Input')
 set(gca,'FontSize',20)
 
 figure(2)
+clf;
 h0cases = find(actual_symbols==0);
 h1cases = find(actual_symbols);
 binedges = -1.5:0.05:2.5;
